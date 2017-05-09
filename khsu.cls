@@ -117,49 +117,28 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\titlecontents{chapter}
-%    [0.5em]
-%    {\vspace{1em}}
-%    {\hspace{-1em}\contentslabel{0.7em}\hspace{1em}}
-%    {\hspace*{-1.5em}}
-%    {\titlerule*[1pc]{}\contentspage}
-%    []
-%% тепер займемося змістом
-%\titlecontents{section}
-%    [0.5em]
-%    {\vspace{1em}}
-%    {\hspace{-1em}\contentslabel{0.7em}\hspace{1em}}
-%    {\hspace*{-1.5em}}
-%    {\titlerule*[1pc]{}\contentspage}
-%    []
-%\titlecontents{subsection}
-%    [0.5em]
-%    {\vspace{1em}}
-%    {\hspace{-1em}.\contentslabel{0.7em}\hspace{1em}}
-%    {\hspace*{-1.5em}}
-%    {\titlerule*[1pc]{}\contentspage}
-%    []
+\setcounter{tocdepth}{2}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % будемо змінювати стилі заголовків
-%\titleformat{command}
-%	[shape]
+%\titleformat{command}[shape]
 %	{format}
 %	{label}
 %	{sep}
 %	{before-code}
 %	[after-code]
-% спочатку --- для розділу
 %\titleformat{\chapter} % указуємо, що модифікуємо саме розділ
 %			{\centering\normalsize\MakeUppercase} % указуємо формат назви ("усі великі")
 %			{\thechapter} % указуємо формат власне номера: це буде просто число, без крапки
 %			{0em} % відстань між номером і назвою
 %			{РОЗДІЛ \thechapter} % текст, що передує назві
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	РОЗДІЛ
 \titleformat{\chapter}[display] % раздел
 	{\filcenter}	% центровать
     {\MakeUppercase{\chaptertitlename} \thechapter}	% РОЗДІЛ Х 
-    {8pt} %??
+    {0pt} % отступ после
 	{\MakeUppercase}	% название капсом
     {}
 \titlespacing{\chapter} % указуємо, що модифікуємо саме розділ
@@ -167,51 +146,50 @@
 	{-28pt} % відступ зверху 
 	{48pt} % відступ знизу
 \titlecontents{chapter}
-	[0em] %
+	[0ex] %
 	{}
-	{\bfseries\MakeUppercase{ \thecontentslabel {}\quad}\bfseries}%\chaptername\
+	{\bfseries\MakeUppercase{\thecontentslabel\quad}\bfseries}%\chaptername\
 	{}
 	{\dotfill\contentspage}    
-    
-    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	ПІДРОЗДІЛ
 \titleformat{\section}[block]
-    {\normalsize\bfseries}
-    {\thesection {.}\quad}
+    {\normalsize}
+    {\thesection\quad}
     {1em}
     {}
 \titlespacing{\section} % указуємо, що модифікуємо саме підрозділ
-	{0pt} % відступ зліва
+	{5ex} % відступ зліва
 	{24pt} % відступ зверху 
 	{24pt} % відступ знизу 
 \titlecontents{section}
-	[2em] %
+	[5ex] %
 	{}
-	{\thecontentslabel {}\quad}
+	{\thecontentslabel\quad}
 	{}
 	{\dotfill\contentspage}    
-    
-    
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	ПУНКТ
 \titleformat{\subsection}[block]
-    {\normalsize\bfseries\itshape}
-    {\thesubsection {.}\quad}
+    {\normalsize}
+    {\thesubsection\quad}
     {1em}
     {}
 \titlespacing{\subsection} % указуємо, що модифікуємо саме пункт
-	{0pt} % відступ зліва
+	{5ex} % відступ зліва
 	{12pt} % відступ зверху
 	{12pt} % відступ знизу 
 \titlecontents{subsection}
-	[5em] %
+	[10ex] %
 	{}
 	{\thecontentslabel {}\quad}
 	{}
-	{\dotfill\contentspage}   
-	
-
+	{\dotfill\contentspage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\likechapterheading}[1]{ 
 	\newpage
 	\begin{center}
-	\textbf{\MakeUppercase{#1}}
+	\textbf{\MakeUppercase{#1}}	% Заголовок, жирним капсом и по центру
 	\end{center}
 	\mbox{}\newline}
         
@@ -220,6 +198,7 @@
 		\newcommand{\l@likechapter}[2]{{\@dottedtocline{0}{0pt}{0pt}{\bfseries #1}{#2}}}
 	\makeatother
     
-	\newcommand{\likechapter}[1]{    
-		\likechapterheading{#1}    
-		\addcontentsline{toc}{likechapter}{\MakeUppercase{#1}}}
+	\newcommand{\likechapter}[1]{
+		\likechapterheading{#1} % собственно название
+		\addcontentsline{toc}{likechapter}{{#1}}	% и содержание
+	}
