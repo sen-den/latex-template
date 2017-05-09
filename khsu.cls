@@ -20,29 +20,23 @@
 \RequirePackage[utf8]{inputenc}
 % Языковые пакеты. Последний - основной.
 \RequirePackage[english,russian,ukrainian]{babel}
-% Комманды с параметрами
-\RequirePackage{xkeyval}
-% Условный оператор
-\RequirePackage{ifthen}
-%
-%
 %
 % Размерности листа
 \RequirePackage[a4paper, top=2cm, bottom=2cm, left=2.5cm, right=1cm]{geometry}
 % Починить отступ в первой строке абзаца
 \RequirePackage{indentfirst}
-% Настройка колонтитулов, в т.ч. - номера страницы
-\RequirePackage{fancyhdr}
-% Управление заголовками
-\RequirePackage[raggedright]{titlesec}
-% Управление содержанием
-\RequirePackage{titletoc}
+% Гиперссылки в тексте
+\usepackage[hidelinks]{hyperref}
+% Поддержка цветов
+\usepackage{xcolor}
 %
 %
 %
 \RequirePackage{lipsum}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Настройка колонтитулов, в т.ч. - номера страницы
+\RequirePackage{fancyhdr}
 \fancyhf{} % очистка текущих значений
 \fancyhead[R]{\thepage} % установка верхнего колонтитула
 \renewcommand{\headrulewidth}{0pt} % убрать разделительную линию
@@ -52,25 +46,24 @@
 % Абзацный отступ
 \setlength{\parindent}{5ex}
 \setlength{\parskip}{0pt}
-% Глубина нумерации
-\setcounter{secnumdepth}{3}
-% Глубина содержания
-\setcounter{tocdepth}{2}
 % Интервал - полуторный
 \linespread{1.3}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Глубина нумерации
+\setcounter{secnumdepth}{3}
+% Глубина содержания
+\setcounter{tocdepth}{2}
+% Управление заголовками
+\RequirePackage[raggedright]{titlesec}
+% Управление содержанием
+\RequirePackage{titletoc}
 %\titleformat{command}[shape]
 %	{format}
 %	{label}
 %	{sep}
 %	{before-code}
 %	[after-code]
-%\titleformat{\chapter} % указуємо, що модифікуємо саме розділ
-%			{\centering\normalsize\MakeUppercase} % указуємо формат назви ("усі великі")
-%			{\thechapter} % указуємо формат власне номера: це буде просто число, без крапки
-%			{0em} % відстань між номером і назвою
-%			{РОЗДІЛ \thechapter} % текст, що передує назві
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %	РОЗДІЛ
 \titleformat{\chapter}[display] % раздел
@@ -161,6 +154,52 @@
 	}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{longtable}
+\RequirePackage{caption}
+\DeclareCaptionLabelFormat{tablecap}{Таблиця #2} % формат за промовчанням "Табл." не влаштовує
+\captionsetup[table]{
+format=hang,
+margin=0em,
+indention=0em,
+singlelinecheck=false, 
+justification=justified, 
+labelsep=endash, 
+labelformat=tablecap, 
+belowskip=18pt, 
+aboveskip=3pt
+} % формат для таблиць
+% нове оточення для довгих таблиць
+\renewenvironment{table}[4]{
+% 1 - структура столбцов
+% 2 - название
+% 3 - ссылка
+% 4 - оглавление
+	\begingroup\centering
+	\setlength{\LTpre}{-14pt}
+	\setlength{\LTpost}{14pt}
+	\setlength{\LTcapwidth}{0pt}
+	\begin{longtable}{#1}
+		\kill
+		\caption{#2}\label{#3}\\
+		#4
+		\endfirsthead
+		\kill
+		\caption*{Продовження таблиці \thetable}\\
+		#4
+		\endhead
+		\hline
+		\endfoot
+}
+	{%
+	\end{longtable}
+	\endgroup
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Комманды с параметрами
+\RequirePackage{xkeyval}
+% Условный оператор
+\RequirePackage{ifthen}
 % Титульная страница
 \makeatletter
 
