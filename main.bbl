@@ -1,0 +1,58 @@
+\begin{thebibliography}{1}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\selectlanguage{#1}\fi}
+\providecommand*{\href}[2]{{\small #2}}
+\providecommand*{\url}[1]{{\small #1}}
+\providecommand*{\BibUrl}[1]{\url{#1}}
+\providecommand{\BibAnnote}[1]{}
+\providecommand*{\BibEmph}[1]{#1}
+\ProvideTextCommandDefault{\cyrdash}{\iflanguage{russian}{\hbox
+  to.8em{--\hss--}}{\textemdash}}
+\providecommand*{\BibDash}{\ifdim\lastskip>0pt\unskip\nobreak\hskip.2em plus
+  0.1em\fi
+\cyrdash\hskip.2em plus 0.1em\ignorespaces}
+\renewcommand{\newblock}{\ignorespaces}
+
+\bibitem{Knuth1984TheTeXbook}
+\selectlanguageifdefined{english}
+\BibEmph{Knuth~Donald~E.} The TeXbook. \BibDash
+\newblock 1 edition. \BibDash
+\newblock Addison-Wesley Professional, 1984. \BibDash
+\newblock P.~496.
+
+\bibitem{Stolyarov2010SverstaiDiplom}
+\selectlanguageifdefined{russian}
+\BibEmph{Столяров~А.В.} Сверстой диплом красиво:
+  LaTeX за 3 дня. \BibDash
+\newblock МАКС Пресс, 2010. \BibDash
+\newblock {С.}~100.
+
+\bibitem{Habr2012TempDisser}
+\selectlanguageifdefined{russian}
+\BibEmph{Акиньшин~А.} Шаблон диссертации в LaTeX.
+  \BibDash
+\newblock 2012. \BibDash
+\newblock URL: \BibUrl{https://habrahabr.ru/post/157153/}.
+
+\bibitem{Habr2012BacDiplom}
+\selectlanguageifdefined{russian}
+\BibEmph{Полозов~A.} Диплом бакалавра в LaTeX, или
+  ДСТУ 3008-95 в 150 строк. \BibDash
+\newblock 2012. \BibDash
+\newblock URL: \BibUrl{https://habrahabr.ru/post/144648/}.
+
+\bibitem{Sjutkin2002Manual}
+\selectlanguageifdefined{ukrainian}
+\BibEmph{Сюткин~В.} \BibDash
+\newblock Справочник по командам LaTeX2e, 2002.
+
+\bibitem{DSTU20153008}
+\selectlanguageifdefined{ukrainian}
+\BibEmph{Земцева~В., Полущук~Ю., Санченко~Р.
+  {та~ін.}} Звіти у сфері науки і техніки.
+  Структура та правила оформлювання. ДСТУ
+  3008:2015. \BibDash
+\newblock 2016.
+
+\end{thebibliography}

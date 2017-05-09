@@ -30,13 +30,16 @@
 \contentsline {likechapter}{\MakeUppercase {\IeC {\CYRV }\IeC {\cyri }\IeC {\cyrs }\IeC {\cyrn }\IeC {\cyro }\IeC {\cyrv }\IeC {\cyrk }\IeC {\cyri }}}{7}
 \contentsline {likechapter}{\IeC {\CYRB }\IeC {\CYRII }\IeC {\CYRB }\IeC {\CYRL }\IeC {\CYRII }\IeC {\CYRO }\IeC {\CYRG }\IeC {\CYRR }\IeC {\CYRA }\IeC {\CYRF }\IeC {\CYRII }\IeC {\CYRYA }}{8}
 \select@language {english}
-\select@language {ukrainian}
-\select@language {russian}
-\select@language {russian}
 \select@language {russian}
 \select@language {russian}
 \select@language {russian}
 \select@language {ukrainian}
+\select@language {ukrainian}
+\select@language {ukrainian}
+\select@language {russian}
+\select@language {russian}
+\select@language {russian}
 \select@language {english}
 \select@language {ukrainian}
+\contentsline {chapter}{\numberline {A}\IeC {\CYRN }\IeC {\cyra }\IeC {\cyrz }\IeC {\cyrv }\IeC {\cyra }\IeC {\cyrn }\IeC {\cyri }\IeC {\cyre } \IeC {\cyrp }\IeC {\cyrr }\IeC {\cyri }\IeC {\cyrl }\IeC {\cyro }\IeC {\cyrzh }\IeC {\cyre }\IeC {\cyrn }\IeC {\cyri }\IeC {\cyrya }}{9}
 \contentsfinish 

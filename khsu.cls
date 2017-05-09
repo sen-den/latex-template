@@ -169,7 +169,7 @@
 \titlecontents{chapter}
 	[0em] %
 	{}
-	{\bfseries\MakeUppercase{\chaptername\ \thecontentslabel {}\quad}\bfseries}
+	{\bfseries\MakeUppercase{ \thecontentslabel {}\quad}\bfseries}%\chaptername\
 	{}
 	{\dotfill\contentspage}    
     
