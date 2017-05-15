@@ -32,7 +32,6 @@
 % Поддержка графики
 \usepackage[pdftex]{graphicx}
 %
-%
 \RequirePackage{lipsum}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -221,10 +220,11 @@ aboveskip=3pt
 \define@cmdkey[CW]{TitlePage}{SupervisorDegree}[професор]{}
 \define@cmdkey[CW]{TitlePage}{SupervisorName}[ПІБ]{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\MakeTitlePage}[1]{
 	\setkeys[CW]{TitlePage}{#1}
 	\thispagestyle{empty}
-	
+%
 	\begin{center}
 		\par\noindent\MakeUppercase{\cmdCW@TitlePage@MinistryName}
 		\par\noindent\MakeUppercase{\cmdCW@TitlePage@UniversityName}
@@ -233,32 +233,47 @@ aboveskip=3pt
 		\vfill		
 		\par\noindent\MakeUppercase{\cmdCW@TitlePage@ResearchTitle}
 	\end{center}
-	
+%
 	\vfill	
-	
-	\begin{flushleft}
+%
+\begin{flushleft}
 	\hyphenpenalty=10000 % не использовать переносы на титульной странице
 	\pretolerance=10000
-	\setlength{\leftskip}{8cm}
-	\par\noindent
-	\ifthenelse
-		{\equal{\cmdCW@TitlePage@StudentSex}{male}}
-		{Виконав: студент }
-		{
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{minipage}[t]{1\textwidth}
+		\begin{minipage}[t]{0.3\textwidth}
 			\ifthenelse
-			{\equal{\cmdCW@TitlePage@StudentSex}{female}}
-			{Виконала: студентка }
-			{\textit{Check StudentSex value! }}
-		}
-	\cmdCW@TitlePage@StudentCourse\ курсу \cmdCW@TitlePage@StudentGroup\ групи спеціальності \cmdCW@TitlePage@StudentSpeciality
-	\par\noindent\cmdCW@TitlePage@StudentName
-	
-	\par\noindent Науковий керівник: \cmdCW@TitlePage@SupervisorDegree
-	\par\noindent \cmdCW@TitlePage@SupervisorName
-	\end{flushleft}
-	
-	\vfill
-	
+				{\equal{\cmdCW@TitlePage@StudentSex}{male}}
+				{\par\noindent Виконав:}
+				{\par\noindent Виконала:}
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.5\textwidth}
+			\par\noindent 
+			\ifthenelse
+				{\equal{\cmdCW@TitlePage@StudentSex}{male}}
+				{студент}
+				{студентка}
+			\cmdCW@TitlePage@StudentCourse\ курсу \cmdCW@TitlePage@StudentGroup\ групи спеціальності
+			\par\noindent\cmdCW@TitlePage@StudentSpeciality
+			\par\noindent\cmdCW@TitlePage@StudentName
+		\end{minipage}
+	\end{minipage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bigskip\par\bigskip
+	\begin{minipage}[t]{1\textwidth}
+		\begin{minipage}[t]{0.3\textwidth}
+			\par\noindent Науковий керівник:
+		\end{minipage}
+		\hfill
+		\begin{minipage}[t]{0.5\textwidth}
+			\par\noindent \cmdCW@TitlePage@SupervisorDegree
+			\par\noindent \cmdCW@TitlePage@SupervisorName
+		\end{minipage}
+	\end{minipage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{flushleft}
+\vfill
 	\begin{center}
 	\cmdCW@TitlePage@CityOfResearch\ \,--\, \cmdCW@TitlePage@YearOfResearch	
 	\end{center}
