@@ -29,7 +29,8 @@
 \usepackage[hidelinks]{hyperref}
 % Поддержка цветов
 \usepackage{xcolor}
-%
+% Поддержка графики
+\usepackage[pdftex]{graphicx}
 %
 %
 \RequirePackage{lipsum}
@@ -93,7 +94,7 @@
 \titlespacing{\section} % указуємо, що модифікуємо саме підрозділ
 	{\parindent} % відступ зліва
 	{0pt} % відступ зверху 
-	{12pt} % відступ знизу 
+	{0pt} % відступ знизу 
 \titlecontents{section}
 	[5ex] %
 	{}
@@ -110,7 +111,7 @@
 \titlespacing{\subsection} % указуємо, що модифікуємо саме пункт
 	{\parindent} % відступ зліва
 	{12pt} % відступ зверху 
-	{12pt} % відступ знизу 
+	{0pt} % відступ знизу 
 \titlecontents{subsection}
 	[10ex] %
 	{}
