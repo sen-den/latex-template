@@ -80,7 +80,7 @@
 \titlecontents{chapter}
 	[0ex] %
 	{}
-	{\MakeUppercase{\thecontentslabel\quad}}%\chaptername\
+	{\bfseries{\chaptername\ \thecontentslabel {}\quad}\bfseries}
 	{}
 	{\dotfill\contentspage}    
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -145,13 +145,14 @@
         
 	\makeatletter
 		\renewcommand{\@dotsep}{2}
-		\newcommand{\l@likechapter}[2]{{\@dottedtocline{0}{0pt}{0pt}{#1}{#2}}}
+		\newcommand{\l@likechapter}[2]{{\@dottedtocline{0}{0pt}{0pt}{\bfseries #1}{#2}}}
 	\makeatother
     
 	\newcommand{\likechapter}[1]{
 		\likechapterheading{#1} % собственно название
 		\addcontentsline{toc}{likechapter}{{#1}}	% и содержание
 	}
+	
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{longtable}
