@@ -29,7 +29,7 @@
 % Поддержка цветов
 \usepackage{xcolor}
 % Поддержка графики
-\usepackage[pdftex]{graphicx}
+%\usepackage[pdftex]{graphicx}
 %
 \RequirePackage{lipsum}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
